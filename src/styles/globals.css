@@ -1,0 +1,48 @@
+@import './colors.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+#__next {
+    width: 100%;
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.main-background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-tertiary-color);
+    flex-direction: column;
+}
+
+.navbar {
+    width: 95%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    flex-direction: row;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
