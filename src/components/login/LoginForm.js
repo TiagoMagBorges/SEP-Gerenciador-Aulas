@@ -28,8 +28,12 @@ export default function LoginForm({setIsLogin}) {
         <section
             className="w-[100%] md:w-6/12 xl:w-4/12 h-[100%] rounded-[15px] md:rounded-tl-[20px] md:rounded-bl-[20px] flex flex-col">
 
-            <div className="flex-[4] rounded-tl-[15px] md:rounded-tl-[20px] content-center text-center">
+            <div className="flex-[4] rounded-tl-[15px] md:rounded-tl-[20px] content-center text-center relative">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-[#333] font-inter">Login</h1>
+                <button onClick={() => window.location.href = '/'}
+                    className="md:hidden absolute top-0 right-0 bg-[#123524] text-white font-black rounded-tr-[15px] rounded-bl-[15px] w-10 h-10">
+                    X
+                </button>
             </div>
             <form className="flex-[6] flex flex-col items-center" onSubmit={handleSubmit}>
 

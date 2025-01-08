@@ -11,6 +11,8 @@ export default function Login() {
         <div className={'main-background'}>
             <header className={'w-[90vw] h-[10vh] lg:w-[95vw] flex justify-between items-center text-white p-4'}>
                 <Logo />
+
+                <Link href={'/'} className="hidden md:block content-center text-center text-white font-bold">Página Inicial</Link>
             </header>
 
             <main className="w-[90vw] h-[89vh] lg:w-[95vw] bg-white rounded-[20px] mb-3 flex flex-col md:flex-row">
