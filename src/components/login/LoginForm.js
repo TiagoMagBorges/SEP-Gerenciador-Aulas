@@ -25,8 +25,7 @@ export default function LoginForm({setIsLogin}) {
     };
 
     return (
-        <section
-            className="w-[100%] md:w-6/12 xl:w-4/12 h-[100%] rounded-[15px] md:rounded-tl-[20px] md:rounded-bl-[20px] flex flex-col">
+        <section className="w-[100%] md:w-6/12 xl:w-4/12 h-[100%] rounded-[15px] md:rounded-tl-[20px] md:rounded-bl-[20px] flex flex-col">
 
             <div className="flex-[4] rounded-tl-[15px] md:rounded-tl-[20px] content-center text-center relative">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-[#333] font-inter">Login</h1>
