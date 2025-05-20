@@ -38,12 +38,12 @@ export default function RegisterForm({setIsLogin}) {
                         className="md:hidden absolute top-0 left-0 bg-[#123524] text-white font-black rounded-tl-[15px] rounded-br-[15px] w-10 h-10">
                     {`<`}
                 </button>
-                <h1 className="text-3xl font-extrabold text-[#333] font-inter">Crie sua conta!</h1>
+                <h1 className="text-2xl font-extrabold text-[#333] font-inter">Crie sua conta!</h1>
             </div>
             <form className="flex-[10] flex flex-col items-center" onSubmit={handleSubmit}>
 
                 <div
-                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-[22px] font-bold text-[#333] font-inter">
+                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
                 <label htmlFor="name">Nome Completo:</label>
                 </div>
 
@@ -56,7 +56,7 @@ export default function RegisterForm({setIsLogin}) {
                 />
 
                 <div
-                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-[22px] font-bold text-[#333] font-inter">
+                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
                     <label htmlFor="email">Email:</label>
                 </div>
 
@@ -70,7 +70,7 @@ export default function RegisterForm({setIsLogin}) {
                 />
 
                 <div
-                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-[22px] font-bold text-[#333] font-inter">
+                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
                     <label htmlFor="password">Senha:</label>
                 </div>
 
@@ -84,7 +84,7 @@ export default function RegisterForm({setIsLogin}) {
                 />
 
                 <div
-                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-[22px] font-bold text-[#333] font-inter">
+                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
                     <label htmlFor="confirmPassword">Confirmar Senha:</label>
                 </div>
 
@@ -98,7 +98,7 @@ export default function RegisterForm({setIsLogin}) {
                 />
 
                 <div
-                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-[22px] font-bold text-[#333] font-inter">
+                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
                     <label htmlFor="phone">Telefone:</label>
                 </div>
 

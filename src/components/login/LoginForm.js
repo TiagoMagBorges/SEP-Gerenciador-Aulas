@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {useState} from "react";
 
-export default function LoginForm({setIsLogin}) {
+export default function LoginForm({setIsLogin, setForgotPassword}) {
 
     const [email, setEmail] = useState('');
 
@@ -36,8 +36,7 @@ export default function LoginForm({setIsLogin}) {
             </div>
             <form className="flex-[6] flex flex-col items-center" onSubmit={handleSubmit}>
 
-                <div
-                    className="flex-[2] flex items-end justify-start w-[95%] mb-2 text-[22px] font-bold text-[#333] font-inter">
+                <div className="flex-[2] flex items-end justify-start w-[95%] mb-2 text-[22px] font-bold text-[#333] font-inter">
                     <label htmlFor="email">Email:</label>
                 </div>
 
@@ -75,7 +74,8 @@ export default function LoginForm({setIsLogin}) {
                             mim</label>
                     </div>
 
-                    <Link href={'/'} className="text-[14px] text-[#123524] font-semibold">Esqueceu a senha?</Link>
+                    <button type={'button'}
+                        onClick={() => setForgotPassword(true)} className="text-[14px] text-[#123524] font-semibold">Esqueceu a senha?</button>
                 </div>
 
                 <button type="submit"
