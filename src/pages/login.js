@@ -3,7 +3,7 @@ import Link from "next/link";
 import LoginForm from "@/components/login/LoginForm";
 import {useState} from "react";
 import RegisterForm from "@/components/login/RegisterForm";
-import ForgotPasswordModal from "@/components/login/ForgotPasswordModal";
+import ForgotPassword from "@/components/login/forgot-password/ForgotPassword";
 
 export default function Login() {
 
@@ -13,7 +13,7 @@ export default function Login() {
 
     return (
         <div className={'main-background'}>
-            {forgotPassword && <ForgotPasswordModal setForgotPassword={setForgotPassword}/>}
+            {forgotPassword && <ForgotPassword setForgotPassword={setForgotPassword}/>}
 
             <header className={'w-[90vw] h-[10vh] lg:w-[95vw] flex justify-between items-center text-white p-4'}>
                 <Logo/>
