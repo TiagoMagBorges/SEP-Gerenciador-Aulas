@@ -2,4 +2,10 @@
     --background-primary-color: #FFFFFF;
     --background-secondary-color: #F8F8FF;
     --background-tertiary-color: #0F150F;
+    --form-text-color: #333;
+    --primary-button-bg: #123524;
+    --secondary-button-bg: #F8F8F8;
+    --secondary-button-text: #555;
+    --border-color: #CCC;
+    --error-color: #EF4444;
 }
