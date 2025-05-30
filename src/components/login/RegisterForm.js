@@ -1,7 +1,7 @@
-import Link from "next/link";
-import {useState} from "react";
+import { useState } from "react";
+import LoginController from "@/controllers/LoginController";
 
-export default function RegisterForm({setIsLogin}) {
+export default function RegisterForm({ setIsLogin }) {
 
     const [name, setName] = useState('');
 
@@ -13,21 +13,39 @@ export default function RegisterForm({setIsLogin}) {
 
     const [phone, setPhone] = useState('');
 
-    const [errors, setErrors] = useState({ email: false, password: false });
+    const [errors, setErrors] = useState({});
 
-    const handleSubmit = (event) => {
+    const [submissionError, setSubmissionError] = useState('');
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        setSubmissionError('');
+        setIsSubmitting(true);
+
         const newErrors = {
             name: name === '',
             email: email === '',
-            password: password === '',
-            confirmPassword: confirmPassword === '' || password !== confirmPassword
+            password: password === '' || password.length < 6,
+            confirmPassword: confirmPassword === '' || password !== confirmPassword,
         };
         setErrors(newErrors);
 
-        if (!newErrors.email && !newErrors.password) {
-            console.log({ email, password });
+        const hasErrors = Object.values(newErrors).some(error => error);
+
+        if (!hasErrors) {
+            try {
+                const userData = { name, email, password, phone };
+                await LoginController.register(userData);
+
+                alert('Cadastro realizado com sucesso! Faça login com suas novas credenciais.');
+                setIsLogin(true);
+            } catch (error) {
+                setSubmissionError(error.message || 'Erro inesperado durante o cadastro.');
+            }
         }
+        setIsSubmitting(false); // End loading
     };
 
     return (
@@ -42,24 +60,24 @@ export default function RegisterForm({setIsLogin}) {
             </div>
             <form className="flex-[10] flex flex-col items-center" onSubmit={handleSubmit}>
 
-                <div
-                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
-                <label htmlFor="name">Nome Completo:</label>
-                </div>
+                {submissionError && <p className="text-red-500 text-sm mt-2">{submissionError}</p>}
 
+                <div className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
+                    <label htmlFor="name">Nome Completo:</label>
+                </div>
                 <input
                     id="name"
                     className={`flex-[1] rounded-[15px] md:rounded-[20px] bg-[#F8F8FF] w-[95%] pl-2 ${errors.name ? 'border border-red-500' : ''}`}
                     style={{boxShadow: 'inset 4px 4px 4px 0 rgba(0, 0, 0, 0.2)'}}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    disabled={isSubmitting}
                 />
+                {errors.name && <p className="text-red-500 text-sm mt-1 w-[95%] text-left">Nome é obrigatório.</p>}
 
-                <div
-                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
+                <div className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
                     <label htmlFor="email">Email:</label>
                 </div>
-
                 <input
                     id="email"
                     className={`flex-[1] rounded-[15px] md:rounded-[20px] bg-[#F8F8FF] w-[95%] pl-2 ${errors.email ? 'border border-red-500' : ''}`}
@@ -67,27 +85,27 @@ export default function RegisterForm({setIsLogin}) {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    disabled={isSubmitting}
                 />
+                {errors.email && <p className="text-red-500 text-sm mt-1 w-[95%] text-left">Email é obrigatório.</p>}
 
-                <div
-                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
+                <div className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
                     <label htmlFor="password">Senha:</label>
                 </div>
-
                 <input
                     id="password"
-                    className={`flex-[1] rounded-[15px] md:rounded-[20px] bg-[#F8F8FF] w-[95%] pl-2 ${errors.confirmPassword ? 'border border-red-500' : ''}`}
+                    className={`flex-[1] rounded-[15px] md:rounded-[20px] bg-[#F8F8FF] w-[95%] pl-2 ${errors.password ? 'border border-red-500' : ''}`}
                     style={{boxShadow: 'inset 4px 4px 4px 0 rgba(0, 0, 0, 0.2)'}}
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    disabled={isSubmitting}
                 />
+                {errors.password && <p className="text-red-500 text-sm mt-1 w-[95%] text-left">Senha é obrigatória e deve ter pelo menos 6 caracteres.</p>}
 
-                <div
-                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
+                <div className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
                     <label htmlFor="confirmPassword">Confirmar Senha:</label>
                 </div>
-
                 <input
                     id="confirmPassword"
                     className={`flex-[1] rounded-[15px] md:rounded-[20px] bg-[#F8F8FF] w-[95%] pl-2 ${errors.confirmPassword ? 'border border-red-500' : ''}`}
@@ -95,13 +113,13 @@ export default function RegisterForm({setIsLogin}) {
                     type="password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
+                    disabled={isSubmitting}
                 />
+                {errors.confirmPassword && <p className="text-red-500 text-sm mt-1 w-[95%] text-left">As senhas não coincidem ou a confirmação é obrigatória.</p>}
 
-                <div
-                    className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
+                <div className="flex-[1] flex items-end justify-start w-[95%] mb-2 text-lg font-bold text-[#333] font-inter">
                     <label htmlFor="phone">Telefone:</label>
                 </div>
-
                 <input
                     id="phone"
                     className={`flex-[1] rounded-[15px] md:rounded-[20px] bg-[#F8F8FF] w-[95%] pl-2`}
@@ -109,15 +127,16 @@ export default function RegisterForm({setIsLogin}) {
                     type="text"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
+                    disabled={isSubmitting}
                 />
 
                 <div className="flex-[2] w-full flex justify-center items-center">
                     <button type="submit"
-                            className="h-[50%] w-[90%] rounded-[15px] md:rounded-[20px] bg-[#123524] shadow items-center">
-                        <h1 className="text-[20px] text-white font-bold">Entrar</h1>
+                            className="h-[50%] w-[90%] rounded-[15px] md:rounded-[20px] bg-[#123524] shadow items-center"
+                            disabled={isSubmitting}>
+                        <h1 className="text-[20px] text-white font-bold">{isSubmitting ? 'Cadastrando...' : 'Cadastrar'}</h1>
                     </button>
                 </div>
-
             </form>
         </section>
     );

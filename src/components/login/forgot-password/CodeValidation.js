@@ -41,7 +41,8 @@ export default function CodeValidation({setStep, setForgotPassword}) {
 
                 <div className={'w-full h-[33.33%] flex items-center justify-center flex-col'}>
 
-                    <div className="flex-[2] flex items-end justify-start w-[95%] mb-2 text-[22px] font-bold text-[#333] font-inter">
+                    <div
+                        className="flex-[2] flex items-end justify-start w-[95%] mb-2 text-[22px] font-bold text-[#333] font-inter">
                         <label htmlFor="validationCode">Código de validação:</label>
                     </div>
 
@@ -53,7 +54,7 @@ export default function CodeValidation({setStep, setForgotPassword}) {
                         value={code}
                         onChange={(e) => setCode(e.target.value)}
                     />
-                        {error && <p className="text-red-500 text-sm mt-1 w-[95%] text-left">{error}</p>}
+                    {error && <p className="text-red-500 text-sm mt-1 w-[95%] text-left">{error}</p>}
                 </div>
 
                 <div className={'w-full h-[33.33%] flex items-center justify-around'}>
