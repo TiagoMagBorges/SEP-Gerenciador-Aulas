@@ -1,7 +1,7 @@
+import {useState} from "react";
 import Logo from "@/components/logo";
 import Link from "next/link";
 import LoginForm from "@/components/login/LoginForm";
-import {useState} from "react";
 import RegisterForm from "@/components/login/RegisterForm";
 import ForgotPassword from "@/components/login/forgot-password/ForgotPassword";
 

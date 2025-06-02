@@ -4,17 +4,29 @@ class LoginController {
 
     static currentUserData = null;
 
-    static STORAGE_KEY = 'currentUser';
+    static LOCAL_STORAGE_KEY = 'currentUser_persistent'; // New key for persistent storage
+    static SESSION_STORAGE_KEY = 'currentUser_session'; // Key for session storage
 
     static initialize() {
         if (typeof window !== 'undefined') {
             try {
-                const storedUser = localStorage.getItem(LoginController.STORAGE_KEY);
-                if (storedUser)
-                    LoginController.currentUserData = JSON.parse(storedUser);
+                // Try to load from persistent storage first
+                const storedUserPersistent = localStorage.getItem(LoginController.LOCAL_STORAGE_KEY);
+                if (storedUserPersistent) {
+                    LoginController.currentUserData = JSON.parse(storedUserPersistent);
+                    return; // If found in local storage, we're good
+                }
+
+                // If not in persistent, try session storage
+                const storedUserSession = sessionStorage.getItem(LoginController.SESSION_STORAGE_KEY);
+                if (storedUserSession) {
+                    LoginController.currentUserData = JSON.parse(storedUserSession);
+                }
             } catch (error) {
-                console.error("Failed to load user from localStorage:", error);
-                localStorage.removeItem(LoginController.STORAGE_KEY);
+                console.error("Failed to load user from storage:", error);
+                // Clear both storages if there's an error
+                localStorage.removeItem(LoginController.LOCAL_STORAGE_KEY);
+                sessionStorage.removeItem(LoginController.SESSION_STORAGE_KEY);
                 LoginController.currentUserData = null;
             }
         }
@@ -24,10 +36,11 @@ class LoginController {
      * Handles the user login process.
      * @param {string} email
      * @param {string} password
+     * @param {boolean} rememberMe - Whether to store the session persistently.
      * @returns {Promise<object>} The user data on successful login.
      * @throws {Error} If login fails.
      */
-    static async login(email, password) {
+    static async login(email, password, rememberMe = false) { // Add rememberMe with a default
         try {
             const loginPayload = { email, password };
 
@@ -39,8 +52,15 @@ class LoginController {
 
             LoginController.currentUserData = responseData;
 
-            if (typeof window !== 'undefined')
-                localStorage.setItem(LoginController.STORAGE_KEY, JSON.stringify(responseData));
+            if (typeof window !== 'undefined') {
+                if (rememberMe) {
+                    localStorage.setItem(LoginController.LOCAL_STORAGE_KEY, JSON.stringify(responseData));
+                    sessionStorage.removeItem(LoginController.SESSION_STORAGE_KEY); // Clear session if persistent
+                } else {
+                    sessionStorage.setItem(LoginController.SESSION_STORAGE_KEY, JSON.stringify(responseData));
+                    localStorage.removeItem(LoginController.LOCAL_STORAGE_KEY); // Clear persistent if not rememberMe
+                }
+            }
 
             return responseData;
         } catch (error) {
@@ -48,8 +68,10 @@ class LoginController {
 
             LoginController.currentUserData = null;
 
-            if (typeof window !== 'undefined')
-                localStorage.removeItem(LoginController.STORAGE_KEY);
+            if (typeof window !== 'undefined') {
+                localStorage.removeItem(LoginController.LOCAL_STORAGE_KEY);
+                sessionStorage.removeItem(LoginController.SESSION_STORAGE_KEY);
+            }
 
             throw error;
         }
@@ -86,8 +108,10 @@ class LoginController {
      */
     static logout() {
         LoginController.currentUserData = null;
-        if (typeof window !== 'undefined')
-            localStorage.removeItem(LoginController.STORAGE_KEY);
+        if (typeof window !== 'undefined') {
+            localStorage.removeItem(LoginController.LOCAL_STORAGE_KEY);
+            sessionStorage.removeItem(LoginController.SESSION_STORAGE_KEY);
+        }
     }
 
     /**

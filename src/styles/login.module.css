@@ -1,0 +1,66 @@
+.input-base {
+  @apply
+  rounded-[15px]
+  md:rounded-[20px]
+  bg-[#F8F8FF]
+  pl-3
+  shadow-[inset_4px_4px_4px_0_rgba(0,0,0,0.2)]
+  focus:outline-none
+  focus:ring-2
+  focus:ring-[#123524]
+  border
+  border-transparent
+  focus:border-[#123524]
+  disabled:opacity-70
+  disabled:cursor-not-allowed;
+}
+
+.btn-primary {
+  @apply
+  flex
+  rounded-[15px]
+  md:rounded-[20px]
+  bg-[#123524]
+  hover:bg-[#0e2a1c]
+  active:bg-[#0a1e15]
+  shadow
+  justify-center
+  items-center
+  text-white
+  font-semibold
+  font-inter
+  disabled:opacity-60
+  disabled:cursor-not-allowed
+  transition-colors
+  duration-150;
+}
+
+.error-text {
+  @apply text-red-500 text-xs mt-1 w-[95%] text-left;
+}
+
+.btn-text-link {
+  @apply text-sm text-[#123524] font-semibold hover:underline transition-colors duration-150;
+}
+
+.btn-secondary-bordered {
+  @apply w-[40%] h-[40%] flex items-center justify-center bg-[#F8F8F8]
+  text-[#555] font-inter font-bold rounded-[20px] border-2 border-[#CCC]
+  shadow transition-colors duration-150;
+}
+
+.section-title {
+  @apply text-4xl md:text-5xl font-bold text-gray-800 font-inter;
+}
+
+.form-label {
+  @apply text-lg font-semibold text-gray-700 font-inter;
+}
+
+.modal-title {
+  @apply text-3xl font-bold text-[#333] font-inter;
+}
+
+.modal-label {
+  @apply text-[22px] font-bold text-[#333] font-inter;
+}
