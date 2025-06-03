@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { Check } from 'lucide-react';
 
-export function PricingSection() {
+export default function PricingSection() {
   return (
-      <section className="py-20">
+      <section className="py-20 w-[100%]">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--background-tertiary-color)]">
             Comece a usar sem nenhum custo

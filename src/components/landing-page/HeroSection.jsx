@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-export function HeroSection() {
+export default function HeroSection() {
   return (
-      <section className="text-center py-20 lg:py-32">
+      <section className="text-center py-20 lg:py-32 w-[100%]">
         <h1 className="text-4xl md:text-6xl font-extrabold text-[var(--background-tertiary-color)] leading-tight">
           Menos tempo administrando, <br /> mais tempo <span className="text-[var(--primary-button-bg)]">ensinando</span>.
         </h1>

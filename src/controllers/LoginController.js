@@ -4,8 +4,8 @@ class LoginController {
 
     static currentUserData = null;
 
-    static LOCAL_STORAGE_KEY = 'currentUser_persistent'; // New key for persistent storage
-    static SESSION_STORAGE_KEY = 'currentUser_session'; // Key for session storage
+    static LOCAL_STORAGE_KEY = 'currentUser_persistent';
+    static SESSION_STORAGE_KEY = 'currentUser_session';
 
     static initialize() {
         if (typeof window !== 'undefined') {

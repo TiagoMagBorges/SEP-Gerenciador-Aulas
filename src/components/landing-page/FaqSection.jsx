@@ -13,9 +13,9 @@ const faqs = [
   }
 ];
 
-export function FaqSection() {
+export default function FaqSection() {
   return (
-      <section className="py-20 bg-[var(--background-secondary-color)] -mx-4 md:-mx-8 lg:-mx-12 px-4 md:px-8 lg:px-12">
+      <section className="py-20 bg-[var(--background-secondary-color)] -mx-4 md:-mx-8 lg:-mx-12 px-4 md:px-8 lg:px-12 w-[100%]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--background-tertiary-color)]">Perguntas Frequentes</h2>
         </div>

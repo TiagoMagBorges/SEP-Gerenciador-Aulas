@@ -110,7 +110,7 @@ export default function LoginForm({ setIsLogin, setForgotPassword }) {
                                 isSubmitting && 'opacity-70 cursor-not-allowed'
                             )}
                         />
-                        <label htmlFor="remember-me" className="text-sm font-semibold text-gray-700 font-inter">
+                        <label htmlFor="remember-me" className="text-sm font-semibold text-gray-700">
                             Lembre de mim
                         </label>
                     </div>
@@ -131,7 +131,7 @@ export default function LoginForm({ setIsLogin, setForgotPassword }) {
                 <button
                     type="submit"
                     className={clsx(
-                        styles['btn-primary'],
+                        'btn-primary',
                         'flex-[2]',
                         'w-[90%]',
                         'mt-4',
@@ -146,7 +146,7 @@ export default function LoginForm({ setIsLogin, setForgotPassword }) {
             </form>
 
             <footer className="flex-[2] rounded-bl-[15px] md:rounded-bl-[20px] text-center content-center border-t border-gray-200 pt-3">
-                <p className="text-sm text-gray-700 font-inter">
+                <p className="text-sm text-gray-700">
                     Não possui uma conta?{' '}
                     <button
                         onClick={() => setIsLogin(false)}

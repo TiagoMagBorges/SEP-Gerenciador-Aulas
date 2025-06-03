@@ -8,8 +8,7 @@ export default function ForgotPassword({setForgotPassword}) {
     const [step, setStep] = useState('email');
 
     return (
-        <div
-            className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50"
+        <div className="modal-overlay"
             onClick={() => setForgotPassword(false)}>
 
             {step === 'email' && (

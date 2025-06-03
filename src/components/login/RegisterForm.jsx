@@ -89,8 +89,8 @@ export default function RegisterForm({ setIsLogin }) {
                             disabled={isSubmitting || showSuccessModal}>
                         {`<`}
                     </button>
-                    {/* AQUI ESTÁ A MUDANÇA: Voltando para as classes originais */}
-                    <h1 className="text-2xl font-bold text-gray-800 font-inter">Crie sua conta!</h1>
+
+                    <h1 className="text-2xl font-bold text-gray-800">Crie sua conta!</h1>
                 </div>
                 <form className="flex-[10] flex flex-col items-center px-4 pt-2 pb-1 overflow-y-auto" onSubmit={handleSubmit}>
 
@@ -193,7 +193,7 @@ export default function RegisterForm({ setIsLogin }) {
 
                     <div className="w-[95%] mt-auto pt-4 pb-3 flex flex-col items-center">
                         <button type="submit"
-                                className={clsx(styles['btn-primary'], 'h-12', 'w-[90%]')}
+                                className={clsx('btn-primary', 'h-12', 'w-[90%]')}
                                 disabled={isSubmitting || showSuccessModal}>
                             <h1 className="text-[20px] font-semibold">{isSubmitting ? 'Cadastrando...' : 'Criar Conta'}</h1>
                         </button>
