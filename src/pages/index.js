@@ -1,23 +1,27 @@
 import Logo from "@/components/logo";
-import Link from "next/link";
-import LoginController from "@/controllers/LoginController";
+import HeroSection from "@/components/landing-page/HeroSection";
+import FeaturesSection from "@/components/landing-page/FeaturesSection";
+import PricingSection from "@/components/landing-page/PricingSection";
+import FaqSection from "@/components/landing-page/FaqSection";
+import NavBarLinks from "@/components/NavBarLinks";
 
 export default function Home() {
-    return (
-        <div className={'main-background'}>
+  return (
+      <div className={'main-background'}>
 
-            <nav className={'w-[90vw] h-[10vh] lg:w-[95vw] flex justify-between items-center text-white p-4'}>
-                <Logo/>
+        <nav className={'navbar'}>
+          <Logo/>
 
-                <Link href={LoginController.currentUserData === null ? 'login' : 'myAccount'}>
-                  {LoginController.currentUserData === null ? 'Login / Criar Conta' : 'Minha Conta'}
-                </Link>
-            </nav>
+          <NavBarLinks/>
+        </nav>
 
-            <div className="w-[90vw] h-[90vh] lg:w-[95vw] bg-white rounded-[20px]">
+        <main className={'main overflow-y-auto'}>
+          <HeroSection/>
+          <FeaturesSection/>
+          <PricingSection/>
+          <FaqSection/>
+        </main>
 
-            </div>
-
-        </div>
-    );
+      </div>
+  );
 }

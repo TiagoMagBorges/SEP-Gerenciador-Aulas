@@ -114,13 +114,13 @@ export default function NewPassword({setStep, setForgotPassword}) {
                 <div className={'w-full h-[33.33%] flex items-center justify-around'}>
                     <button type="button"
                             onClick={() => setForgotPassword(false)}
-                            className={styles['btn-secondary-bordered']}>
+                            className={clsx('btn-secondary', 'w-[40%]', 'h-[40%]')}>
                         <h1 className={'text-center'}>Voltar</h1>
                     </button>
 
                     <button
                         type="submit"
-                        className={clsx(styles['btn-primary'], 'w-[40%]', 'h-[40%]', 'border-2', 'border-border-color')}>
+                        className={clsx('btn-primary', 'w-[40%]', 'h-[40%]')}>
                         <h1 className={'text-center'}>Redefinir</h1>
                     </button>
                 </div>

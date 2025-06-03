@@ -33,7 +33,7 @@ export default function EmailValidation({setStep, setForgotPassword}) {
                         className={clsx(styles['modal-title'], 'w-full h-[50%] flex items-center justify-center')}>
                         <h1 className={'text-center'}>Recuperar senha</h1>
                     </div>
-                    <div className={'w-full h-[50%] text-base font-inter flex items-center justify-center text-center px-4'}>
+                    <div className={'w-full h-[50%] text-base flex items-center justify-center text-center px-4'}>
                         <p>
                             Insira seu email para receber o código de validação.
                         </p>
@@ -68,13 +68,13 @@ export default function EmailValidation({setStep, setForgotPassword}) {
                 <div className={'w-full h-[33.33%] flex items-center justify-around'}>
                     <button type="button"
                             onClick={() => setForgotPassword(false)}
-                            className={styles['btn-secondary-bordered']}>
+                            className={clsx('btn-secondary', 'w-[40%]', 'h-[40%]')}>
                         <h1 className={'text-center'}>Voltar</h1>
                     </button>
 
                     <button
                         type="submit"
-                        className={clsx(styles['btn-primary'], 'w-[40%]', 'h-[40%]', 'border-2', 'border-border-color')}>
+                        className={clsx('btn-primary', 'w-[40%]', 'h-[40%]')}>
                         <h1 className={'text-center'}>Enviar</h1>
                     </button>
                 </div>
