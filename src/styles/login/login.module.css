@@ -1,0 +1,184 @@
+.input-base {
+  @apply
+  rounded-[15px]
+  md:rounded-[20px]
+  bg-[#F8F8FF]
+  pl-3
+  shadow-[inset_4px_4px_4px_0_rgba(0,0,0,0.2)]
+  focus:outline-none
+  focus:ring-2
+  focus:ring-[#123524]
+  border
+  border-transparent
+  focus:border-[#123524]
+  disabled:opacity-70
+  disabled:cursor-not-allowed;
+}
+
+.division-line {
+  @apply
+  hidden
+  md:block
+  w-[1px]
+  md:h-full
+  bg-[#CCC];
+}
+
+.error-text {
+  @apply text-red-500 text-xs mt-1 w-[95%] text-left;
+}
+
+.btn-text-link {
+  @apply text-sm text-[#123524] font-semibold hover:underline transition-colors duration-150;
+}
+
+.modal-title {
+  @apply text-3xl font-bold text-[#333];
+}
+
+.modal-label {
+  @apply text-[22px] font-bold text-[#333];
+}
+
+.close-button {
+  @apply
+  md:hidden
+  absolute
+  top-0
+  right-0
+  bg-primary-green
+  text-white
+  font-bold
+  rounded-tr-[15px]
+  rounded-bl-[15px]
+  w-10
+  h-10
+  flex
+  items-center
+  justify-center;
+}
+
+.login-container {
+  @apply
+  w-[100%]
+  h-[100%]
+  md:w-6/12
+  xl:w-4/12
+  rounded-[15px]
+  md:rounded-tl-[20px]
+  md:rounded-bl-[20px]
+  flex
+  flex-col;
+}
+
+.register-container {
+  @apply
+  w-[100%]
+  h-[100%]
+  md:w-8/12
+  rounded-[15px]
+  md:rounded-tr-[20px]
+  md:rounded-br-[20px]
+  flex flex-col
+  bg-white;
+}
+
+.login-header {
+  @apply
+  flex-[4]
+  rounded-tl-[15px]
+  md:rounded-tl-[20px]
+  flex
+  items-center
+  justify-center
+  text-center
+  relative;
+}
+
+.register-header {
+  @apply
+  flex-[1]
+  rounded-tr-[15px]
+  md:rounded-tr-[20px]
+  content-center
+  text-center
+  relative
+  py-4;
+}
+
+.login-form{
+  @apply
+  flex-[6]
+  flex
+  flex-col
+  items-center;
+}
+
+.register-form {
+  @apply
+  flex-[10]
+  flex
+  flex-col
+  items-center
+  px-4
+  pt-2
+  pb-1
+  overflow-y-auto;
+}
+
+.options-container {
+  @apply
+  flex-[2]
+  flex
+  justify-between
+  items-center
+  w-[95%]
+  mt-3;
+}
+
+.login-footer{
+  @apply
+  flex-[2]
+  rounded-bl-[15px]
+  md:rounded-bl-[20px]
+  text-center
+  content-center
+  border-t
+  border-gray-200
+  pt-3;
+}
+
+.register-footer {
+  @apply
+  w-[95%]
+  mt-auto
+  pt-4
+  pb-3
+  flex
+  flex-col
+  items-center;
+}
+
+.login-title-text {
+  @apply
+  text-4xl
+  md:text-5xl
+  font-bold
+  text-gray-800;
+}
+
+.label-container{
+  @apply
+  flex
+  items-end
+  justify-start
+  w-[95%]
+  mb-1;
+}
+
+.label {
+  @apply
+  text-lg
+  font-semibold
+  text-gray-700;
+}

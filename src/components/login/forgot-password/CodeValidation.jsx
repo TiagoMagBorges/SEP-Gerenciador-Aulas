@@ -1,6 +1,6 @@
 import {useState} from "react";
-import clsx from 'clsx';
-import styles from '@/styles/login.module.css';
+import clsx from "@/utils/clsx";
+import styles from '@/styles/login/login.module.css';
 
 export default function CodeValidation({setStep, setForgotPassword}) {
 
