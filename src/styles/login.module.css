@@ -19,7 +19,7 @@
   @apply
   hidden
   md:block
-  w-[1px]
+  w-[2px]
   md:h-full
   bg-[#CCC];
 }
@@ -30,14 +30,6 @@
 
 .btn-text-link {
   @apply text-sm text-[#123524] font-semibold hover:underline transition-colors duration-150;
-}
-
-.modal-title {
-  @apply text-3xl font-bold text-[#333];
-}
-
-.modal-label {
-  @apply text-[22px] font-bold text-[#333];
 }
 
 .close-button {
