@@ -1,6 +1,6 @@
 import {useState} from "react";
 import clsx from "@/utils/clsx";
-import styles from '@/styles/login/login.module.css';
+import styles from '@/styles/login.module.css';
 
 export default function EmailValidation({setStep, setForgotPassword}) {
 

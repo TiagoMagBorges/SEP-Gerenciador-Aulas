@@ -1,6 +1,6 @@
 import {useState} from "react";
 import LoginController from "@/controllers/LoginController";
-import styles from "@/styles/login/login.module.css";
+import styles from "@/styles/login.module.css";
 import SuccessModal from "@/components/login/SuccesModal";
 import clsx from "@/utils/clsx";
 

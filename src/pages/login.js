@@ -5,7 +5,7 @@ import LoginForm from "@/components/login/LoginForm";
 import RegisterForm from "@/components/login/RegisterForm";
 import ForgotPassword from "@/components/login/forgot-password/ForgotPassword";
 import styles from "@/styles/navbar.module.css";
-import loginStyles from "@/styles/login/login.module.css";
+import loginStyles from "@/styles/login.module.css";
 import clsx from "@/utils/clsx";
 import LoginPromptAside from "@/components/login/LoginPromptAside";
 import LoginWelcomeAside from "@/components/login/forgot-password/LoginWelcomeAside";
