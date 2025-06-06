@@ -213,6 +213,7 @@ export default function RegisterForm({setIsLogin}) {
         {showSuccessModal && (
             <SuccessModal
                 message={successMessage}
+                btnMessage={'Fazer Login'}
                 onClose={handleCloseModal}
                 onRedirect={handleRedirectToLogin}
             />

@@ -8,7 +8,7 @@ import styles from "@/styles/navbar.module.css";
 import loginStyles from "@/styles/login.module.css";
 import clsx from "@/utils/clsx";
 import LoginPromptAside from "@/components/login/LoginPromptAside";
-import LoginWelcomeAside from "@/components/login/forgot-password/LoginWelcomeAside";
+import LoginWelcomeAside from "@/components/login/LoginWelcomeAside";
 
 export default function Login() {
 

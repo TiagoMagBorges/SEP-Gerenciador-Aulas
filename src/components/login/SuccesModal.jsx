@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SuccessModal({ message, onClose, onRedirect }) {
+export default function SuccessModal({ message, btnMessage, onClose, onRedirect }) {
   if (!message) return null;
 
   const handleConfirm = () => {
@@ -17,7 +17,7 @@ export default function SuccessModal({ message, onClose, onRedirect }) {
               onClick={handleConfirm}
               className="btn-primary w-full h-12"
           >
-            <h1 className="text-[18px] md:text-[20px] font-semibold">Fazer Login</h1>
+            <h1 className="text-[18px] md:text-[20px] font-semibold">{btnMessage}</h1>
           </button>
         </div>
       </div>
