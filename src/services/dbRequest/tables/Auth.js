@@ -1,40 +1,42 @@
-import { ip, port } from "../dbRequests";
+import {API_URL} from "../dbRequests";
 
-/**
- * Class for handling user login.
- * Maps to POST /login
- */
 export class AuthLogin {
-    #props = {}
+  #props = {};
 
-    /**
-     * Sets the payload for logging in a user.
-     * @param {object} payload
-     * @param {string} payload.email - The user's email.
-     * @param {string} payload.password - The user's password.
-     */
-    set = payload => {
-        this.#props = payload;
-        return this;
+  /**
+   * Defines the user login payload.
+   * @param {object} payload
+   * @param {string} payload.email
+   * @param {string} payload.password
+   */
+  set = (payload) => {
+    this.#props = payload;
+    return this;
+  };
+
+  /**
+   * @returns {Promise<{data: any|null, error: any|null, response: Response}>}
+   */
+  execute = async () => {
+    try {
+      const response = await fetch(`${API_URL}/login`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(this.#props),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        return {data, error: null, response};
+      }
+
+      const error = await response.json().catch(() => null);
+
+      return {data: null, error, response};
+
+    } catch (networkError) {
+      console.error("Network request failed:", networkError);
+      throw new Error("API communication failure.");
     }
-
-    /**
-     * Executes the API call to log in a user.
-     * @returns {Promise<Response>} The fetch API response.
-     */
-    execute = async () => {
-        const response = await fetch(`http://${ip}:${port}/login`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(this.#props)
-        });
-
-        if (response.status === 401)
-            throw new Error('Credenciais inválidas.');
-
-        if (!response.ok)
-            throw new Error('Falha no login.');
-
-        return response.json();
-    }
+  };
 }
