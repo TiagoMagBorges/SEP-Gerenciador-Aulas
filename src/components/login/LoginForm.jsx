@@ -20,7 +20,7 @@ export default function LoginForm({setIsLogin, setForgotPassword}) {
 
   const router = useRouter();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => { // TODO: Improve this function
     event.preventDefault();
     setLoginError('');
     setErrors({email: false, password: false});
